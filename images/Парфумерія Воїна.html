@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Парфумерія Воїна</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <div class="logo">Парфумерія Воїна</div>
+    <nav>
+      <a href="#catalog">Каталог</a>
+      <a href="#about">Про нас</a>
+      <a href="#contact">Контакти</a>
+    </nav>
+    <div class="cart">🛒 <span id="cart-count">0</span></div>
+  </header>
+
+  <section class="hero">
+    <h1>Аромати сили і духу</h1>
+    <a href="#catalog" class="btn">Перейти до каталогу</a>
+  </section>
+
+  <section class="catalog" id="catalog">
+    <h2>Каталог</h2>
+    <div class="products">
+      <div class="product">
+        <img src="/images/OrtoParisi-Brutus-1080x1350.gif" alt="BRUTUS">
+        <h3>Brut</h3>
+        <span class="price">€155,00</span>
+        <button onclick="addToCart('Brut', 155)">Додати в кошик</button>
+      </div>
+      <div class="product">
+        <img src="/images/OrtoParisi-Risvelium-1080x1350.gif" alt="RISVELIUM">
+        <h3>Risvelium</h3>
+        <span class="price">€155,00</span>
+        <button onclick="addToCart('Risvelium', 155)">Додати в кошик</button>
+      </div>
+      <div class="product">
+        <img src="/images/OrtoParisi-Seminalis-1080x1350.gif" alt="SEMINALIS">
+        <h3>Black SEMINALIS</h3>
+        <span class="price">€155,00</span>
+        <button onclick="addToCart('SEMINALIS', 155)">Додати в кошик</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Зв'язок</h2>
+    <p>Напиши нам у Telegram:</p>
+    <a href="https://t.me/your_telegram_username" class="btn">Замовити</a>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Парфумерія Воїна</p>
+  </footer>
+
+  <script>
+    let cartCount = 0;
+    function addToCart(product, price) {
+      cartCount++;
+      document.getElementById('cart-count').innerText = cartCount;
+      alert(`Додано в кошик: ${product} за ${price} грн`);
+    }
+  </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>
